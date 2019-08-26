@@ -1,0 +1,114 @@
+@import './normalize.scss';
+
+@import './fonts.scss';
+@import './pages.scss';
+@import './components.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+*:focus {
+	outline: none;
+}
+
+html {
+	color: $black;
+	margin: 0 auto;
+	font-size: 10px;
+	scroll-behavior: smooth;
+	background-color: $white;
+	font-family: 'latoregular', sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+input,
+select {
+	border: 0;
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+select {
+	background: transparent;
+}
+
+.opacity-5 {
+	opacity: 0.5;
+}
+
+@keyframes zoomIn {
+	from {
+		opacity: 0;
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+
+	50% {
+		opacity: 1;
+	}
+}
+
+@keyframes zoomOut {
+	from {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+.zoomIn {
+	animation-name: zoomIn;
+}
+
+.zoomOut {
+	animation-name: zoomOut;
+}
+
+.Toastify__toast-container {
+	font-size: 140%;
+	text-align: center;
+	font-family: 'latoregular', sans-serif;
+}
+
+.Toastify__toast--success {
+	color: #3c763d !important;
+	border-color: #d6e9c6 !important;
+	background-color: #dff0d8 !important;
+}
+
+.Toastify__toast--info {
+	color: #31708f !important;
+	border-color: #bce8f1 !important;
+	background-color: #d9edf7 !important;
+}
+
+.Toastify__toast--warning {
+	color: #8a6d3b !important;
+	border-color: #faebcc !important;
+	background-color: #fcf8e3 !important;
+}
+
+.Toastify__toast--error {
+	color: #a94442 !important;
+	border-color: #ebccd1 !important;
+	background-color: #f2dede !important;
+}
+
+.Toastify__close-button {
+	color: rgba(150, 150, 150, 0.7) !important;
+}
+
+.Toastify__progress-bar {
+	background-color: rgba(150, 150, 150, 0.7) !important;
+}
