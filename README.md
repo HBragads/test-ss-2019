@@ -17,3 +17,4 @@
     7. Estilo e posicionamento do menu e outros ajustes finos;
     8. Atualização do footer de acordo com os outros elementos e update do fluxo de erro na home;
     9. Foram criados os itens da lista de dragões, com a 'espera' dos eventos básicos;
+    10. Formatada a data dos itens com o React Moment + Moment JS;

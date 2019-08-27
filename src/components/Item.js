@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 import { MdEdit as Edit } from 'react-icons/md';
 import { MdDelete as Delete } from 'react-icons/md';
 
@@ -28,7 +29,7 @@ const Item = (props) => {
             </h2>
 
             <p>
-                Criado em: <span> {props.createdAt} </span>
+                Criado em: <span> <Moment format="DD/MM/YYYY" date={props.createdAt} /> </span>
 
                 <Edit className="item--icon item--edit"
                     onClick={

@@ -39,8 +39,6 @@ class Home extends Component {
             .then(response => {
                 self.setState({ rawData: response.data });
 
-                console.log(response.data);
-
                 if (callback) {
                     callback();
                 }
@@ -75,7 +73,7 @@ class Home extends Component {
                             id={data.id}
                             name={data.name}
                             type={data.type}
-                            createdAt={data.createdAt}
+                            createdAt={new Date(data.createdAt)}
                             key={"item-number-" + index}
                             event={() => {
                                 console.log(data.id);
