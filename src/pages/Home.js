@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Util from '../util';
+import Card from '../components/Item';
 import React, { Component } from 'react';
 
 class Home extends Component {
@@ -26,7 +27,7 @@ class Home extends Component {
     getData = (callback) => {
         let self = this;
 
-        const url = '----';
+        const url = '';
         const config = {
             headers: {
                 'Accept': 'application/json',
@@ -46,7 +47,7 @@ class Home extends Component {
             })
             .catch(error => {
                 let renderElement = (
-                    <div className="home--error">
+                    <li className="home--error">
 
                         <div className="home--error--img"></div>
 
@@ -54,7 +55,7 @@ class Home extends Component {
                             Falha ao baixar os dados, recarregue a página e tente novamente!
                     </p>
 
-                    </div>
+                    </li>
                 );
 
                 this.setState({ renderElement: renderElement }, () => {
@@ -70,11 +71,16 @@ class Home extends Component {
             this.state.rawData.map(
                 (data, index) => {
                     return (
-                        <li
-                            key={"element-" + index}
-                        >
-                            {data.name}
-                        </li>
+                        <Card
+                            id={data.id}
+                            name={data.name}
+                            type={data.type}
+                            createdAt={data.createdAt}
+                            key={"item-number-" + index}
+                            event={() => {
+                                console.log(data.id);
+                            }}
+                        />
                     );
                 }
             )
@@ -87,11 +93,11 @@ class Home extends Component {
 
     render() {
         return (
-            <section className="home">
+            <ul className="home">
 
                 {this.state.renderElement}
 
-            </section>
+            </ul>
         );
     }
 }

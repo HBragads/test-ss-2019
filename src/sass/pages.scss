@@ -136,13 +136,20 @@
 }
 
 .home {
+	padding: 0;
 	width: 100%;
 	color: $black;
 	display: flex;
-	padding: 15px;
 	position: relative;
-	flex-flow: row wrap;
+	flex-flow: column wrap;
+	justify-content: center;
 	background-color: $second-color;
+
+	ul {
+		li {
+			list-style: none;
+		}
+	}
 
 	&--error {
 		width: 100%;
