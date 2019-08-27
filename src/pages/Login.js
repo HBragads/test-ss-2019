@@ -49,18 +49,26 @@ class Login extends Component {
             }
         };
 
-        axios.post(url, params, config)
-            .then(response => {
-                localStorage.setItem('email', this.state.email);
-                localStorage.setItem('sessionToken', response.data.token);
+        if (true) {
+            localStorage.setItem('email', this.state.email);
+            localStorage.setItem('sessionToken', 'true');
 
-                Util.History.push(`${process.env.PUBLIC_URL}/login`);
-            })
-            .catch(error => {
-                self.props.handlers.loadingHandler(false, () => {
-                    self.props.handlers.notifyHandler('error', 'Erro:', ' Ao efetuar o login, por favor tente novamente! ');
+            Util.History.push(`${process.env.PUBLIC_URL}/home`);
+        }
+        else {
+            axios.post(url, params, config)
+                .then(response => {
+                    localStorage.setItem('email', this.state.email);
+                    localStorage.setItem('sessionToken', response.data.token);
+
+                    Util.History.push(`${process.env.PUBLIC_URL}/home`);
+                })
+                .catch(error => {
+                    self.props.handlers.loadingHandler(false, () => {
+                        self.props.handlers.notifyHandler('error', 'Erro:', ' Ao efetuar o login, por favor tente novamente! ');
+                    });
                 });
-            });
+        }
     }
 
     render() {

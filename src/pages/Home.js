@@ -28,7 +28,7 @@ class Home extends Component {
     getData = (callback) => {
         let self = this;
 
-        const url = '...';
+        const url = '';
         const config = {
             headers: {
                 'Accept': 'application/json',
@@ -38,13 +38,16 @@ class Home extends Component {
 
         axios.get(url, config)
             .then(response => {
-                self.setState({ rawData: response.data.data });
+                self.setState({ rawData: response.data });
+
+                console.log(response.data);
 
                 if (callback) {
                     callback();
                 }
             })
             .catch(error => {
+                console.log(error);
                 self.props.handlers.loadingHandler(false, () => {
                     self.props.handlers.notifyHandler('error', 'Erro:', ' Ao buscar os dados. ', () => {
                         localStorage.clear();
@@ -58,13 +61,13 @@ class Home extends Component {
         let renderElement = [];
 
         renderElement.push(
-            this.state.map(
+            this.state.rawData.map(
                 (data, index) => {
                     return (
                         <li
                             key={"element-" + index}
                         >
-                            {data}
+                            {data.name}
                         </li>
                     );
                 }
