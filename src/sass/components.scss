@@ -80,9 +80,9 @@
 
 .header {
 	width: 100%;
-	padding: 5%;
 	height: 55px;
 	color: $white;
+	padding: 15px;
 	display: flex;
 	position: relative;
 	align-items: center;
@@ -117,40 +117,35 @@
 	bottom: 0;
 	width: 100%;
 	z-index: 100;
+	padding: 15px;
+	color: $white;
 	display: flex;
-	padding: 20px;
-	position: relative;
+	position: absolute;
 	flex-direction: column;
-	background-color: $white;
-	border-top: 1px solid $gray;
+	background-color: $first-color;
+	border-top: 1px solid rgba($black, 0.5);
 
 	&--logo {
 		width: 40px;
-		height: 43px;
+		height: 40px;
 		cursor: pointer;
-		margin-bottom: 15px;
 		background: url(./images/logo.png) no-repeat;
 		background-position: center;
 		background-size: cover;
 	}
 
 	&--links {
-		margin: 0;
 		padding: 0;
+		margin: 20px 0;
 		list-style: none;
 
 		li {
 			margin: 0;
-			color: $green;
 			cursor: pointer;
 			padding: 15px 0;
-			font-size: 320%;
-			letter-spacing: -1.2px;
-			border-bottom: 1px solid $gray;
-
-			&:last-of-type {
-				border-bottom: none;
-			}
+			font-size: 180%;
+			letter-spacing: 0.3px;
+			text-decoration: underline;
 		}
 	}
 }

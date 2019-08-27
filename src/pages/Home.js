@@ -1,8 +1,6 @@
 import axios from 'axios';
 import Util from '../util';
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 class Home extends Component {
     state = {
@@ -28,7 +26,7 @@ class Home extends Component {
     getData = (callback) => {
         let self = this;
 
-        const url = '';
+        const url = '----';
         const config = {
             headers: {
                 'Accept': 'application/json',
@@ -47,12 +45,20 @@ class Home extends Component {
                 }
             })
             .catch(error => {
-                console.log(error);
-                self.props.handlers.loadingHandler(false, () => {
-                    self.props.handlers.notifyHandler('error', 'Erro:', ' Ao buscar os dados. ', () => {
-                        localStorage.clear();
-                        Util.History.push(`${process.env.PUBLIC_URL}/login`);
-                    });
+                let renderElement = (
+                    <div className="home--error">
+
+                        <div className="home--error--img"></div>
+
+                        <p className="home--error--text">
+                            Falha ao baixar os dados, recarregue a página e tente novamente!
+                    </p>
+
+                    </div>
+                );
+
+                this.setState({ renderElement: renderElement }, () => {
+                    this.props.handlers.loadingHandler(false);
                 });
             });
     }

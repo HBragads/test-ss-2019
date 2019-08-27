@@ -140,8 +140,33 @@
 	color: $black;
 	display: flex;
 	padding: 15px;
-	min-height: 100vh;
 	position: relative;
 	flex-flow: row wrap;
 	background-color: $second-color;
+
+	&--error {
+		width: 100%;
+		display: flex;
+		padding: 15px;
+		height: 300px;
+		margin: 0 auto;
+		max-width: 425px;
+		align-items: center;
+		flex-flow: column nowrap;
+		justify-content: space-evenly;
+
+		&--img {
+			width: 40%;
+			height: 40%;
+			background: url(./images/error.png) no-repeat;
+			background-size: contain;
+			background-position: center;
+		}
+
+		&--text {
+			color: $red;
+			font-size: 160%;
+			text-align: center;
+		}
+	}
 }

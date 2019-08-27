@@ -14,26 +14,18 @@ const Footer = (props) => {
 
                 <li onClick={
                     () => {
-                        Util.History.push(`${process.env.PUBLIC_URL}/...`);
+                        Util.History.push(`${process.env.PUBLIC_URL}/home`);
                     }
                 }>
-                    ...
+                    Lista de Dragões
                 </li>
 
                 <li onClick={
                     () => {
-                        Util.History.push(`${process.env.PUBLIC_URL}/...`);
+                        Util.History.push(`${process.env.PUBLIC_URL}/create`);
                     }
                 }>
-                    ...
-                </li>
-
-                <li onClick={
-                    () => {
-                        Util.History.push(`${process.env.PUBLIC_URL}/...`);
-                    }
-                }>
-                    ...
+                    Criar Dragão
                 </li>
 
             </ul>

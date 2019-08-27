@@ -15,3 +15,4 @@
     5. Arrumado a cor do loading e o flex-flow da home;
     6. Estilo adicionado ao componente header;
     7. Estilo e posicionamento do menu e outros ajustes finos;
+    8. Atualização do footer de acordo com os outros elementos e update do fluxo de erro na home;
