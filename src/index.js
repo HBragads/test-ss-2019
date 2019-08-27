@@ -142,7 +142,7 @@ class App extends Component {
             <Route path={`${process.env.PUBLIC_URL}/home`}
               render={
                 () => (
-                  <Home handlers={handlers} />
+                  <Home menuFlag={this.state.menuFlag} handlers={handlers} />
                 )
               }
             />
