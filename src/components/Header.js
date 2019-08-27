@@ -16,7 +16,11 @@ const Header = (props) => {
             </h1>
 
             <Menu className="header--menu"
-                onClick={props.action}
+                onClick={
+                    () => {
+                        props.action();
+                    }
+                }
             />
 
         </header>

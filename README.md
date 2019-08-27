@@ -14,3 +14,4 @@
     4. Adicionei um login fake, para utilizar o serviço e arrumei o endpoint de getData;
     5. Arrumado a cor do loading e o flex-flow da home;
     6. Estilo adicionado ao componente header;
+    7. Estilo e posicionamento do menu e outros ajustes finos;

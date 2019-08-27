@@ -7,6 +7,8 @@ import Util from './util';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Menu from './components/Menu';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 //Vendors:
 import ReactDOM from 'react-dom';
@@ -95,9 +97,19 @@ class App extends Component {
     this.setState({ menuFlag: flag }, () => {
       window.scrollTo(0, 0);
       document.body.style.overflow = flag ? 'hidden' : 'visible';
-      document.getElementById('app').style.overflow = flag ? 'hidden' : 'visible';
-      document.getElementById('menu').style.overflow = flag ? 'hidden' : 'visible';
-      document.getElementById('menu-container').style.overflow = flag ? 'hidden' : 'visible';
+
+      if (document.getElementById('app')) {
+        document.getElementById('app').style.overflow = flag ? 'hidden' : 'visible';
+      }
+
+      if (document.getElementById('menu')) {
+        document.getElementById('menu').style.overflow = flag ? 'hidden' : 'visible';
+      }
+
+      if (document.getElementById('menu-container')) {
+        document.getElementById('menu-container').style.overflow = flag ? 'hidden' : 'visible';
+      }
+
     });
   }
 
@@ -142,7 +154,15 @@ class App extends Component {
             <Route path={`${process.env.PUBLIC_URL}/home`}
               render={
                 () => (
-                  <Home menuFlag={this.state.menuFlag} handlers={handlers} />
+                  <React.Fragment>
+
+                    <Header title="Lista de Dragões" action={() => { this.menuHandler(!this.state.menuFlag) }} />
+
+                    <Home menuFlag={this.state.menuFlag} handlers={handlers} />
+
+                    <Footer />
+
+                  </React.Fragment>
                 )
               }
             />

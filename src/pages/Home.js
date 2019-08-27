@@ -7,8 +7,7 @@ import Footer from '../components/Footer';
 class Home extends Component {
     state = {
         rawData: [],
-        renderElement: '',
-        menuFlag: this.props.menuFlag
+        renderElement: ''
     }
 
     componentWillMount = () => {
@@ -84,11 +83,7 @@ class Home extends Component {
         return (
             <section className="home">
 
-                <Header title="Lista de Dragões" action={() => { this.props.handlers.menuHandler(!this.state.menuFlag) }} />
-
                 {this.state.renderElement}
-
-                <Footer />
 
             </section>
         );

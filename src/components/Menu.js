@@ -26,10 +26,10 @@ const Menu = (props) => {
 
                 <p className="menu--info--text">
                     Conectado como
-                </p>
 
-                <p className="menu--info--email">
-                    {localStorage.getItem('email')}
+                    <span>
+                        {localStorage.getItem('email')}
+                    </span>
                 </p>
 
                 <p className="menu--info--logout"
@@ -39,7 +39,7 @@ const Menu = (props) => {
                         Util.History.push(`${process.env.PUBLIC_URL}/login`);
                     }}
                 >
-                    Sair
+                    Logout
             </p>
 
             </div>
@@ -48,26 +48,18 @@ const Menu = (props) => {
 
                 <li onClick={
                     () => {
-                        Util.History.push(`${process.env.PUBLIC_URL}/...`);
+                        Util.History.push(`${process.env.PUBLIC_URL}/home`);
                     }
                 }>
-                    ...
+                    Lista de Dragões
                 </li>
 
                 <li onClick={
                     () => {
-                        Util.History.push(`${process.env.PUBLIC_URL}/...`);
+                        Util.History.push(`${process.env.PUBLIC_URL}/create`);
                     }
                 }>
-                    ...
-                </li>
-
-                <li onClick={
-                    () => {
-                        Util.History.push(`${process.env.PUBLIC_URL}/...`);
-                    }
-                }>
-                    ...
+                    Criar Dragão
                 </li>
 
             </ul>
