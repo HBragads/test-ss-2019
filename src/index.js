@@ -113,7 +113,7 @@ class App extends Component {
         bgColor='#FFF'
         textColor='#555'
         text='Carregando'
-        spinnerColor='#6495ED'
+        spinnerColor='556B2F'
         loading={this.state.loadingFlag}
       >
 

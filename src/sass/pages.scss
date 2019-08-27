@@ -63,7 +63,7 @@
 				font-size: 220%;
 				border-radius: 2px;
 				margin-bottom: 15px;
-				background-color: rgba(0, 0, 0, 0.5);
+				background-color: rgba($black, 0.5);
 				font-family: 'latoregular', sans-serif;
 
 				&::placeholder {
@@ -84,9 +84,24 @@
 				&:hover,
 				&:focus,
 				&:active {
-					filter: blur(5%);
-					background: rgba($blue, 0.75);
-					border: 1px solid rgba($blue, 0.75);
+					color: $first-color;
+					background: rgba($second-color, 0.75);
+					border: 1px solid rgba($second-color, 0.75);
+
+					&::placeholder {
+						color: $first-color;
+						opacity: 1;
+					}
+
+					&:-ms-input-placeholder {
+						color: $first-color;
+						opacity: 1;
+					}
+
+					&::-ms-input-placeholder {
+						color: $first-color;
+						opacity: 1;
+					}
 				}
 			}
 
@@ -99,17 +114,17 @@
 				margin-top: 10px;
 				border-radius: 2px;
 				letter-spacing: 1px;
-				border: 1px solid $blue;
-				background-color: $blue;
 				text-transform: uppercase;
+				border: 1px solid $first-color;
+				background-color: $first-color;
 				font-family: 'latoregular', sans-serif;
 
 				&:hover,
 				&:focus,
 				&:active {
-					color: $gray;
-					background-color: $blue;
-					border: 1px solid $blue;
+					color: $first-color;
+					background-color: $second-color;
+					border: 1px solid $first-color;
 				}
 			}
 		}
