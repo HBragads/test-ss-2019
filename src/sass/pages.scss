@@ -141,9 +141,10 @@
 	color: $black;
 	display: flex;
 	position: relative;
+	align-items: center;
 	flex-flow: column wrap;
 	justify-content: center;
-	background-color: $second-color;
+	background-color: $white;
 
 	ul {
 		li {
@@ -155,19 +156,19 @@
 		width: 100%;
 		display: flex;
 		padding: 15px;
-		height: 300px;
 		margin: 0 auto;
 		max-width: 425px;
 		align-items: center;
 		flex-flow: column nowrap;
-		justify-content: space-evenly;
+		height: calc(100vh - 270px);
+		justify-content: flex-start;
 
 		&--img {
 			width: 40%;
-			height: 40%;
+			height: 65%;
 			background: url(./images/error.png) no-repeat;
 			background-size: contain;
-			background-position: center;
+			background-position: 100% 65%;
 		}
 
 		&--text {

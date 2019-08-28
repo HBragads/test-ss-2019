@@ -20,6 +20,7 @@
 8. Atualização do footer de acordo com os outros elementos e update do fluxo de erro na home;
 9. Foram criados os itens da lista de dragões, com a 'espera' dos eventos básicos;
 10. Formatada a data dos itens com o *React Moment + Moment JS*;
+11. Alteradas as regras dos itens, na lista de dragões, para edição e exclusão dos mesmos dentre outras melhorias;
 
 ## TODO: 
 

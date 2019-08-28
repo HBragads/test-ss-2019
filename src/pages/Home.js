@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Util from '../util';
+import Moment from 'moment';
 import Card from '../components/Item';
 import React, { Component } from 'react';
 
@@ -11,6 +12,7 @@ class Home extends Component {
 
     componentWillMount = () => {
         window.scroll(0, 0);
+        Moment.suppressDeprecationWarnings = true;
 
         if (!localStorage.getItem('sessionToken')) {
             Util.History.push(`${process.env.PUBLIC_URL}/login`);
@@ -37,10 +39,29 @@ class Home extends Component {
 
         axios.get(url, config)
             .then(response => {
-                self.setState({ rawData: response.data });
+                if (response.data.length > 0) {
+                    self.setState({ rawData: response.data });
 
-                if (callback) {
-                    callback();
+                    if (callback) {
+                        callback();
+                    }
+                }
+                else {
+                    let renderElement = (
+                        <li className="home--error">
+
+                            <div className="home--error--img"></div>
+
+                            <p className="home--error--text">
+                                Não há dragões para serem listados...
+                        </p>
+
+                        </li>
+                    );
+
+                    this.setState({ renderElement: renderElement }, () => {
+                        this.props.handlers.loadingHandler(false);
+                    });
                 }
             })
             .catch(error => {
@@ -64,20 +85,20 @@ class Home extends Component {
 
     renderElementHandler = () => {
         let renderElement = [];
+        this.state.rawData.sort((one, two) => (one.name > two.name) ? 1 : -1);
 
         renderElement.push(
             this.state.rawData.map(
                 (data, index) => {
+                    let newCreatedAt = Moment(new Date(data.createdAt)).format('DD/MM/YYYY');
+
                     return (
                         <Card
                             id={data.id}
                             name={data.name}
                             type={data.type}
-                            createdAt={new Date(data.createdAt)}
-                            key={"item-number-" + index}
-                            event={() => {
-                                console.log(data.id);
-                            }}
+                            createdAt={newCreatedAt}
+                            key={"item-number-" + index + '-name-' + data.name}
                         />
                     );
                 }

@@ -115,37 +115,92 @@
 
 .item {
 	z-index: 5;
+	width: 100%;
 	display: flex;
 	padding: 15px;
-	cursor: pointer;
+	margin: 7.5px 0;
+	max-width: 425px;
+	position: relative;
+	border-radius: 2px;
 	flex-flow: column nowrap;
 	justify-content: space-evenly;
+	border: 1px solid $first-color;
+	background-color: $second-color;
+
+	@media only screen and (max-width: 425px) {
+		border: none;
+		border-top: 1px solid $first-color;
+		border-bottom: 1px solid $first-color;
+	}
+
+	&:first-of-type {
+		margin-top: 15px;
+	}
+
+	&:last-of-type {
+		margin-bottom: 15px;
+	}
 
 	&:nth-child(even) {
 		background-color: rgba($third-color, 0.15);
 	}
 
 	&--icon {
+		top: 15px;
 		z-index: 10;
 		cursor: pointer;
-		margin: 0 3px 0 0;
+		font-size: 160%;
+		position: absolute;
+	}
+
+	&--arrow {
+		z-index: 10;
+		right: 23px;
+		bottom: 15px;
+		color: $white;
+		cursor: pointer;
+		font-size: 160%;
+		position: absolute;
+		border-radius: 2px;
+		background-color: $first-color;
 	}
 
 	&--edit {
 		color: $blue;
+		right: 32.5px;
 	}
 
 	&--delete {
 		color: $red;
+		right: 12.5px;
+	}
+
+	&--save {
+		color: $blue;
+		right: 32.5px;
+	}
+
+	&--close {
+		color: $red;
+		right: 12.5px;
 	}
 
 	h2 {
 		display: flex;
 		font-size: 160%;
+		max-width: 87.5%;
 		color: $first-color;
 		margin-bottom: 15px;
 		align-items: center;
 		font-family: 'latobold', sans-serif;
+
+		input {
+			color: $orange;
+			margin: 0 10px 0 3px;
+			text-decoration: underline;
+			background-color: transparent;
+			font-family: 'latoregular', sans-serif;
+		}
 
 		span {
 			margin: 0 10px 0 3px;
@@ -157,9 +212,22 @@
 		color: $onix;
 		display: flex;
 		font-size: 140%;
+		max-width: 87.5%;
 		margin-bottom: 7.5px;
 		align-items: center;
 		font-family: 'latobold', sans-serif;
+
+		&:last-of-type {
+			margin: 0;
+		}
+
+		input {
+			color: $orange;
+			margin: 0 10px 0 3px;
+			text-decoration: underline;
+			background-color: transparent;
+			font-family: 'latoregular', sans-serif;
+		}
 
 		span {
 			margin: 0 10px 0 3px;
