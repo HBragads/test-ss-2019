@@ -182,6 +182,67 @@
 	}
 }
 
+.details {
+	width: 100%;
+	color: $black;
+	display: flex;
+	padding: 15px;
+	position: relative;
+	align-items: center;
+	flex-flow: column wrap;
+	background-color: $white;
+	min-height: calc(100vh - 270px);
+
+	&--card {
+		margin: 0;
+		width: 100%;
+		display: flex;
+		padding: 15px;
+		height: 200px;
+		max-width: 500px;
+		position: relative;
+		border-radius: 2px;
+		align-items: center;
+		flex-flow: column nowrap;
+		justify-content: space-evenly;
+		border: 1px solid $first-color;
+		background: rgb(34, 193, 195);
+		background: linear-gradient(0deg, rgba(darkgreen, 0.3) 25%, rgba(goldenrod, 0.3) 75%);
+
+		h2 {
+			color: $gray;
+			display: flex;
+			font-size: 200%;
+			margin-bottom: 15px;
+			align-items: center;
+			text-transform: capitalize;
+			font-family: 'latobold', sans-serif;
+
+			span {
+				margin: 0 10px 0 3px;
+			}
+		}
+
+		p {
+			color: $onix;
+			display: flex;
+			font-size: 180%;
+			align-items: center;
+			margin-bottom: 7.5px;
+			text-transform: capitalize;
+			font-family: 'latobold', sans-serif;
+
+			&:last-of-type {
+				margin: 0;
+			}
+
+			span {
+				margin: 0 10px 0 3px;
+			}
+		}
+	}
+}
+
 .create {
 	width: 100%;
 	padding: 10px;

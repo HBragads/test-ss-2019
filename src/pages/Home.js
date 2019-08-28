@@ -75,8 +75,8 @@ class Home extends Component {
                     </li>
                 );
 
-                this.setState({ renderElement: renderElement }, () => {
-                    this.props.handlers.loadingHandler(false);
+                self.setState({ renderElement: renderElement }, () => {
+                    self.props.handlers.loadingHandler(false);
                 });
             });
     }

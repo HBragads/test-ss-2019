@@ -194,6 +194,7 @@
 		color: $first-color;
 		margin-bottom: 15px;
 		align-items: center;
+		text-transform: capitalize;
 		font-family: 'latobold', sans-serif;
 
 		input {
@@ -215,8 +216,9 @@
 		display: flex;
 		font-size: 140%;
 		max-width: 87.5%;
-		margin-bottom: 7.5px;
 		align-items: center;
+		margin-bottom: 7.5px;
+		text-transform: capitalize;
 		font-family: 'latobold', sans-serif;
 
 		&:last-of-type {

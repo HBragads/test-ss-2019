@@ -92,7 +92,7 @@ class Item extends Component {
     }
 
     detailsHandler = () => {
-        Util.History.push(`${process.env.PUBLIC_URL}/detail?id=${this.state.data.id}`);
+        Util.History.push(`${process.env.PUBLIC_URL}/details?id=${this.state.data.id}`);
     }
 
     deleteHandler = () => {

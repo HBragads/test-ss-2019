@@ -24,9 +24,9 @@
 12. Implementação da edição e remoção dos dragões na página da lista de dragões;
 13. Página de cadastro dos dragões;
 14. Atualização da remoção dos dragões;
+15. Página de detalhes dos dragões;
 
 ## TODO: 
 
-#### Uma página com os detalhes de um dragão específico:
-
-1. Os seguintes dados devem ser apresentados na página: Data de criação, Nome, Tipo.
+1. Otimizar ordençõa por ordem alfabética.
+2. Revisar ajustes finos e responsividade.
