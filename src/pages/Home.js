@@ -95,7 +95,12 @@ class Home extends Component {
                             type={data.type}
                             createdAt={data.createdAt}
                             handlers={this.props.handlers}
-                            key={"item-number-" + index + '-name-' + data.name}
+                            key={"item-id-" + data.id + '-name-' + data.name}
+                            updateData={() => {
+                                this.getData(() => {
+                                    this.renderElementHandler();
+                                });
+                            }}
                         />
                     );
                 }

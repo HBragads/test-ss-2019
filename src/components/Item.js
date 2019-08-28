@@ -14,13 +14,12 @@ class Item extends Component {
     state = {
         tempName: '',
         tempType: '',
-        isVisible: true,
         data: this.props,
         isEdition: false,
         tempCreatedAt: '',
         name: this.props.name,
         type: this.props.type,
-        createdAt: new Date(this.props.createdAt),
+        createdAt: new Date(this.props.createdAt)
     }
 
     componentWillMount = () => {
@@ -109,21 +108,21 @@ class Item extends Component {
 
         axios.delete(url, {}, config)
             .then(response => {
-                self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão excluído. ', () => {
-                    this.setState({
-                        isVisible: false
-                    });
-                });
+                self.props.handlers.loadingHandler(true, () => {
+                self.props.updateData();
+                self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão excluído. ');
+            });
             })
             .catch(error => {
+                self.props.handlers.loadingHandler(false, () => {
                 self.props.handlers.notifyHandler('error', 'Erro:', ' Não foi possível excluir o dragão, tente novamente. ');
             });
+        });
     }
 
     render = () => {
         return (
-                this.state.isVisible ?
-                    <li className="item">
+                    <li id={'item' + this.state.data.id} key={'item' + this.state.data.id} className="item">
 
                         {
                             this.state.isEdition ?
@@ -226,8 +225,6 @@ class Item extends Component {
                         }
 
                     </li>
-                    :
-                    ''
         );
     }
 };
