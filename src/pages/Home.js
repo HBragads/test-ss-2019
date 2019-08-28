@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Util from '../util';
+import Collect from 'collect.js';
 import Card from '../components/Item';
 import React, { Component } from 'react';
 
@@ -83,10 +84,15 @@ class Home extends Component {
 
     renderElementHandler = () => {
         let renderElement = [];
-        this.state.rawData.sort((one, two) => (one.name > two.name) ? 1 : -1);
+        let lowerNames = this.state.rawData.map((value) => {
+            value.name = value.name.toLowerCase();
+            return value;
+        });
+
+        let sorted = Collect(lowerNames).sortBy('name');
 
         renderElement.push(
-            this.state.rawData.map(
+            sorted.map(
                 (data, index) => {
                     return (
                         <Card

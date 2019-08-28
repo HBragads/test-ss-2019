@@ -37,8 +37,8 @@ class Create extends Component {
         let params = {
             histories: [],
             createdAt: Moment(),
-            name: this.state.name,
-            type: this.state.type
+            name: this.state.name.toLowerCase(),
+            type: this.state.type.toLowerCase()
         };
 
         const url = '';

@@ -25,8 +25,8 @@
 13. Página de cadastro dos dragões;
 14. Atualização da remoção dos dragões;
 15. Página de detalhes dos dragões;
+16. Otimização da ordenção dos dragões, mais a prevenção de erros na adição de nomes com letra maiúscula;
 
 ## TODO: 
 
-1. Otimizar ordençõa por ordem alfabética.
-2. Revisar ajustes finos e responsividade.
+1. Revisar ajustes finos e responsividade.

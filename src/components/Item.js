@@ -56,8 +56,8 @@ class Item extends Component {
         );
 
         let params = {
-            name: name,
-            type: type,
+            name: name.toLowerCase(),
+            type: type.toLowerCase(),
             createdAt: createdAt
         };
 
@@ -73,8 +73,8 @@ class Item extends Component {
             .then(response => {
                 self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão atualizado. ', () => {
                     this.setState({
-                        name: name,
-                        type: type,
+                        name: name.toLowerCase(),
+                        type: type.toLowerCase(),
                         isEdition: false,
                         createdAt: createdAt
                     });
