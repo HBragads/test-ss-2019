@@ -144,17 +144,17 @@ class Item extends Component {
                                         <h2> Nome:
 
                                             <input
-                                                            type="text"
-                                                            name="name"
-                                                            maxLength="20"
-                                                            id="name-input"
-                                                            defaultValue={this.state.name}
-                                                            onChange={(event) => {
-                                                                this.setState({
-                                                                    tempName: event.target.value
-                                                                });
-                                                            }}
-                                                        />
+                                                type="text"
+                                                name="name"
+                                                maxLength="20"
+                                                id="name-input"
+                                                defaultValue={this.state.name}
+                                                onChange={(event) => {
+                                                    this.setState({
+                                                        tempName: event.target.value
+                                                    });
+                                                }}
+                                            />
 
                                         </h2>
 

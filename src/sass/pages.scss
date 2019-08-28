@@ -143,13 +143,11 @@
 	position: relative;
 	align-items: center;
 	flex-flow: column wrap;
-	justify-content: center;
 	background-color: $white;
+	min-height: calc(100vh - 270px);
 
-	ul {
-		li {
-			list-style: none;
-		}
+	li {
+		list-style: none;
 	}
 
 	&--error {
@@ -180,6 +178,131 @@
 		a {
 			color: $blue;
 			font-family: 'latobold', sans-serif;
+		}
+	}
+}
+
+.create {
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column nowrap;
+	min-height: calc(100vh - 270px);
+	background-image: linear-gradient(to right, rgba(darkgreen, 0.45), rgba(goldenrod, 0.45));
+
+	&--header {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-flow: column nowrap;
+
+		&--logo {
+			width: 40px;
+			height: 40px;
+			background: url(./images/logo.png) no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+	}
+
+	&--content {
+		width: 90%;
+		max-width: 425px;
+		border-radius: 2px;
+		padding: 15px 25px 25px 25px;
+		background-color: rgba(255, 255, 255, 0.8);
+
+		@media only screen and (min-width: 450px) {
+			width: 400px;
+		}
+
+		&--form {
+			width: 100%;
+			z-index: 10;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			margin: 30px auto 0 auto;
+
+			&--input {
+				width: 100%;
+				height: 50px;
+				border: none;
+				color: $white;
+				padding: 0 25px;
+				font-size: 160%;
+				border-radius: 2px;
+				margin-bottom: 15px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				background-color: rgba($black, 0.5);
+				font-family: 'latoregular', sans-serif;
+
+				&::placeholder {
+					color: $white;
+					opacity: 1;
+				}
+
+				&:-ms-input-placeholder {
+					color: $white;
+					opacity: 1;
+				}
+
+				&::-ms-input-placeholder {
+					color: $white;
+					opacity: 1;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: $first-color;
+					background: rgba($second-color, 0.75);
+					border: 1px solid rgba($second-color, 0.75);
+
+					&::placeholder {
+						color: $first-color;
+						opacity: 1;
+					}
+
+					&:-ms-input-placeholder {
+						color: $first-color;
+						opacity: 1;
+					}
+
+					&::-ms-input-placeholder {
+						color: $first-color;
+						opacity: 1;
+					}
+				}
+			}
+
+			&--button {
+				width: 50%;
+				border: none;
+				height: 40px;
+				color: $white;
+				font-size: 160%;
+				margin-top: 10px;
+				border-radius: 2px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				border: 1px solid $first-color;
+				background-color: $first-color;
+				font-family: 'latoregular', sans-serif;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: $first-color;
+					background-color: $second-color;
+					border: 1px solid $first-color;
+				}
+			}
 		}
 	}
 }

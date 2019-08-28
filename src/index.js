@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import Util from './util';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Create from './pages/Create';
 import Menu from './components/Menu';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -159,6 +160,22 @@ class App extends Component {
                     <Header title="Lista de Dragões" action={() => { this.menuHandler(!this.state.menuFlag) }} />
 
                     <Home menuFlag={this.state.menuFlag} handlers={handlers} />
+
+                    <Footer />
+
+                  </React.Fragment>
+                )
+              }
+            />
+
+            <Route path={`${process.env.PUBLIC_URL}/create`}
+              render={
+                () => (
+                  <React.Fragment>
+
+                    <Header title="Criar Dragão" action={() => { this.menuHandler(!this.state.menuFlag) }} />
+
+                    <Create menuFlag={this.state.menuFlag} handlers={handlers} />
 
                     <Footer />
 

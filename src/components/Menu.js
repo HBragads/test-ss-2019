@@ -48,6 +48,7 @@ const Menu = (props) => {
 
                 <li onClick={
                     () => {
+                        props.menuHandler(false);
                         Util.History.push(`${process.env.PUBLIC_URL}/home`);
                     }
                 }>
@@ -56,6 +57,7 @@ const Menu = (props) => {
 
                 <li onClick={
                     () => {
+                        props.menuHandler(false);
                         Util.History.push(`${process.env.PUBLIC_URL}/create`);
                     }
                 }>

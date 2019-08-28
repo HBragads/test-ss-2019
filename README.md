@@ -22,6 +22,7 @@
 10. Formatada a data dos itens com o *React Moment + Moment JS*;
 11. Alteradas as regras dos itens, na lista de dragões, para edição e exclusão dos mesmos dentre outras melhorias;
 12. Implementação da edição e remoção dos dragões na página da lista de dragões;
+13. Página de cadastro dos dragões;
 
 ## TODO: 
 
