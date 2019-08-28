@@ -1,4 +1,7 @@
+import axios from 'axios';
 import Util from '../util';
+import Moment from 'moment';
+import ReactMoment from 'react-moment';
 import InputMask from 'react-input-mask';
 import React, { Component } from 'react';
 import { MdEdit as Edit } from 'react-icons/md';
@@ -9,15 +12,20 @@ import { MdArrowForward as RightArrow } from 'react-icons/md';
 
 class Item extends Component {
     state = {
+        tempName: '',
+        tempType: '',
+        isVisible: true,
         data: this.props,
         isEdition: false,
+        tempCreatedAt: '',
         name: this.props.name,
         type: this.props.type,
-        tempName: this.props.name,
-        tempType: this.props.type,
-        createdAt: this.props.createdAt,
-        tempCreatedAt: this.props.createdAt
+        createdAt: new Date(this.props.createdAt),
     }
+
+    componentWillMount = () => {
+        Moment.suppressDeprecationWarnings = true;
+    };
 
     editHandler = (event) => {
         event.preventDefault();
@@ -25,7 +33,57 @@ class Item extends Component {
         document.getElementById('createdAt-input').blur();
         document.getElementById('type-input').blur();
 
-        console.log(this.state.data);
+        let self = this;
+        let name = (
+            this.state.tempName.length > 0 &&
+                this.state.tempName !== this.state.name ?
+                this.state.tempName :
+                this.state.name
+        );
+
+        let type = (
+            this.state.tempType.length > 0 &&
+                this.state.tempType !== this.state.type ?
+                this.state.tempType :
+                this.state.type
+        );
+
+        let createdAt = (
+            Moment(this.state.tempCreatedAt, 'DD/MM/YYYY').isValid() ?
+                Moment(this.state.tempCreatedAt, 'DD/MM/YYYY').toDate() :
+                Moment(this.state.createdAt, 'DD/MM/YYYY').isValid() ?
+                    Moment(this.state.createdAt, 'DD/MM/YYYY').toDate() :
+                    Moment()
+        );
+
+        let params = {
+            name: name,
+            type: type,
+            createdAt: createdAt
+        };
+
+        const url = '/' + this.state.data.id;
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        };
+
+        axios.put(url, params, config)
+            .then(response => {
+                self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão atualizado. ', () => {
+                    this.setState({
+                        name: name,
+                        type: type,
+                        isEdition: false,
+                        createdAt: createdAt
+                    });
+                });
+            })
+            .catch(error => {
+                self.props.handlers.notifyHandler('error', 'Erro:', ' Não foi possível atualizar o dragão, verifique os dados e tente novamente. ');
+            });
     }
 
     isEditionHandler = () => {
@@ -39,110 +97,137 @@ class Item extends Component {
     }
 
     deleteHandler = () => {
-        console.log(this.state.data.id);
+        let self = this;
+
+        const url = '/' + this.state.data.id;
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        };
+
+        axios.delete(url, {}, config)
+            .then(response => {
+                self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão excluído. ', () => {
+                    this.setState({
+                        isVisible: false
+                    });
+                });
+            })
+            .catch(error => {
+                self.props.handlers.notifyHandler('error', 'Erro:', ' Não foi possível excluir o dragão, tente novamente. ');
+            });
     }
 
     render = () => {
         return (
-            <li className="item">
-                {
-                    this.state.isEdition ?
-                        <React.Fragment>
+                this.state.isVisible ?
+                    <li className="item">
 
-                            <Save className="item--icon item--save" onClick={(event) => { this.editHandler(event) }} />
+                        {
+                            this.state.isEdition ?
+                                <React.Fragment>
 
-                            <Close className="item--icon item--close"
-                                onClick={
-                                    () => {
-                                        this.isEditionHandler();
-                                    }
-                                }
-                            />
+                                    <Save className="item--icon item--save" onClick={(event) => { this.editHandler(event) }} />
 
-                            <form onSubmit={(event) => { this.editHandler(event) }}>
-
-                                <h2> Nome:
-
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        id="name-input"
-                                        defaultValue={this.state.name}
-                                        onChange={(event) => {
-                                            this.setState({
-                                                tempName: event.target.value
-                                            });
-                                        }}
+                                    <Close className="item--icon item--close"
+                                        onClick={
+                                            () => {
+                                                this.isEditionHandler();
+                                            }
+                                        }
                                     />
 
-                                </h2>
+                                    <form onSubmit={(event) => { this.editHandler(event) }}>
 
-                                <p> Criado em:
+                                        <h2> Nome:
 
-                                    <InputMask
-                                        type="text"
-                                        maskChar=" "
-                                        mask="99/99/9999"
-                                        id="createdAt-input"
-                                        placeholder="DD/MM/AAAA"
-                                        defaultValue={this.state.createdAt}
-                                        onChange={(event) => {
-                                            this.setState({
-                                                tempCreatedAt: event.target.value
-                                            });
-                                        }}
+                                            <input
+                                                            type="text"
+                                                            name="name"
+                                                            maxLength="20"
+                                                            id="name-input"
+                                                            defaultValue={this.state.name}
+                                                            onChange={(event) => {
+                                                                this.setState({
+                                                                    tempName: event.target.value
+                                                                });
+                                                            }}
+                                                        />
+
+                                        </h2>
+
+                                        <p> Criado em:
+                                            
+                                            <InputMask
+                                                type="text"
+                                                maskChar=" "
+                                                mask="99/99/9999"
+                                                id="createdAt-input"
+                                                placeholder="DD/MM/AAAA"
+                                                defaultValue={Moment(this.state.createdAt).format('DD/MM/YYYY')}
+                                                onChange={(event) => {
+                                                    this.setState({
+                                                        tempCreatedAt: event.target.value
+                                                    });
+                                                }}
+                                            />
+
+                                        </p>
+
+                                        <p> Tipo:
+                                            
+                                            <input
+                                                type="text"
+                                                name="type"
+                                                maxLength="20"
+                                                id="type-input"
+                                                defaultValue={this.state.type}
+                                                onChange={(event) => {
+                                                    this.setState({
+                                                        tempType: event.target.value
+                                                    });
+                                                }}
+                                            />
+
+                                        </p>
+
+                                    </form>
+
+                                </React.Fragment> :
+                                <React.Fragment>
+
+                                    <Edit className="item--icon item--edit"
+                                        onClick={
+                                            () => {
+                                                this.isEditionHandler();
+                                            }
+                                        }
                                     />
 
-                                </p>
-
-                                <p> Tipo:
-
-                                    <input
-                                        type="text"
-                                        name="type"
-                                        id="type-input"
-                                        defaultValue={this.state.type}
-                                        onChange={(event) => {
-                                            this.setState({
-                                                tempType: event.target.value
-                                            });
-                                        }}
+                                    <Delete className="item--icon item--delete"
+                                        onClick={
+                                            () => {
+                                                this.deleteHandler();
+                                            }
+                                        }
                                     />
 
-                                </p>
+                                    <h2> Nome: <span> {this.state.name} </span> </h2>
 
-                            </form>
+                                    <p> Criado em: <span> <ReactMoment date={this.state.createdAt} format={'DD/MM/YYYY'} /> </span> </p>
 
-                        </React.Fragment> :
-                        <React.Fragment>
+                                    <p> Tipo: <span> {this.state.type} </span> </p>
 
-                            <Edit className="item--icon item--edit"
-                                onClick={
-                                    () => {
-                                        this.isEditionHandler();
-                                    }
-                                }
-                            />
+                                    <RightArrow className="item--arrow" onClick={this.detailsHandler} />
 
-                            <Delete className="item--icon item--delete"
-                                onClick={
-                                    () => {
-                                        this.deleteHandler();
-                                    }
-                                }
-                            />
+                                </React.Fragment>
+                        }
 
-                            <h2> Nome: <span> {this.state.name} </span> </h2>
-
-                            <p> Criado em: <span> {this.state.createdAt} </span> </p>
-
-                            <p> Tipo: <span> {this.state.type} </span> </p>
-
-                            <RightArrow className="item--arrow" onClick={this.detailsHandler} />
-
-                        </React.Fragment>
-                }
-            </li>
+                    </li>
+                    :
+                    ''
         );
     }
 };

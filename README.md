@@ -21,16 +21,12 @@
 9. Foram criados os itens da lista de dragões, com a 'espera' dos eventos básicos;
 10. Formatada a data dos itens com o *React Moment + Moment JS*;
 11. Alteradas as regras dos itens, na lista de dragões, para edição e exclusão dos mesmos dentre outras melhorias;
+12. Implementação da edição e remoção dos dragões na página da lista de dragões;
 
 ## TODO: 
 
-#### Uma página de lista de dragões:
-
-1. Os nomes devem estar em ordem alfabética;
-2. A partir da lista, deverá ser possível remover e alterar as informações dos dragões.
-
 #### Uma página com os detalhes de um dragão específico:
 
-3. Os seguintes dados devem ser apresentados na página: Data de criação, Nome, Tipo.
+1. Os seguintes dados devem ser apresentados na página: Data de criação, Nome, Tipo.
 
 #### Uma página para cadastro de dragões.

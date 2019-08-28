@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Util from '../util';
-import Moment from 'moment';
 import Card from '../components/Item';
 import React, { Component } from 'react';
 
@@ -12,7 +11,6 @@ class Home extends Component {
 
     componentWillMount = () => {
         window.scroll(0, 0);
-        Moment.suppressDeprecationWarnings = true;
 
         if (!localStorage.getItem('sessionToken')) {
             Util.History.push(`${process.env.PUBLIC_URL}/login`);
@@ -53,7 +51,7 @@ class Home extends Component {
                             <div className="home--error--img"></div>
 
                             <p className="home--error--text">
-                                Não há dragões para serem listados...
+                                Não há dragões para serem listados, adicione um clicando <a href="/create">aqui</a>.
                         </p>
 
                         </li>
@@ -90,14 +88,13 @@ class Home extends Component {
         renderElement.push(
             this.state.rawData.map(
                 (data, index) => {
-                    let newCreatedAt = Moment(new Date(data.createdAt)).format('DD/MM/YYYY');
-
                     return (
                         <Card
                             id={data.id}
                             name={data.name}
                             type={data.type}
-                            createdAt={newCreatedAt}
+                            createdAt={data.createdAt}
+                            handlers={this.props.handlers}
                             key={"item-number-" + index + '-name-' + data.name}
                         />
                     );
