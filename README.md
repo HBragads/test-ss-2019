@@ -4,9 +4,11 @@
 
 1. Clone o repositório para sua máquina;
 2. No prompt de comando do seu sistema operacional, navegue até a pasta do projeto;
-3. Verifique que a sua versão do node esteja atualizada;
+3. Verifique se a sua versão do node está atualizada;
 4. Execute o comando **npm i** para instalação das dependências;
-5. Após a instalação dos *node_modules*, execute o comando **npm start**. Assim o seu navegador padrão irá abrir o projeto na *porta 3000*.
+5. Após a instalação dos *node_modules*, execute o comando **npm start**. 
+6. Seu navegador padrão irá abrir o projeto na *porta 3000*;
+7. Para efetuar o login é só inserir qualquer usuário / e-mail e senha.
 
 ## Log de construção do projeto:
 
@@ -25,8 +27,5 @@
 13. Página de cadastro dos dragões;
 14. Atualização da remoção dos dragões;
 15. Página de detalhes dos dragões;
-16. Otimização da ordenção dos dragões, mais a prevenção de erros na adição de nomes com letra maiúscula;
-
-## TODO: 
-
-1. Revisar ajustes finos e responsividade.
+16. Otimização da ordenção dos dragões com a *Collect JS* e a adição da prevenção de erros em nomes com letra maiúscula;
+17. Ajustes finos e responsividade final.

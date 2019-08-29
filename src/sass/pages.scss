@@ -31,7 +31,7 @@
 			margin: 5px 0;
 			font-size: 180%;
 			letter-spacing: 1.15px;
-			text-transform: uppercase;
+			text-transform: capitalize;
 			font-family: 'latobold', sans-serif;
 		}
 	}
@@ -66,7 +66,7 @@
 				border-radius: 2px;
 				margin-bottom: 15px;
 				letter-spacing: 1px;
-				text-transform: uppercase;
+				text-transform: capitalize;
 				background-color: rgba($black, 0.5);
 				font-family: 'latoregular', sans-serif;
 
@@ -118,7 +118,7 @@
 				margin-top: 10px;
 				border-radius: 2px;
 				letter-spacing: 1px;
-				text-transform: uppercase;
+				text-transform: capitalize;
 				border: 1px solid $first-color;
 				background-color: $first-color;
 				font-family: 'latoregular', sans-serif;
@@ -299,7 +299,7 @@
 				border-radius: 2px;
 				margin-bottom: 15px;
 				letter-spacing: 1px;
-				text-transform: uppercase;
+				text-transform: capitalize;
 				background-color: rgba($black, 0.5);
 				font-family: 'latoregular', sans-serif;
 
@@ -351,7 +351,7 @@
 				margin-top: 10px;
 				border-radius: 2px;
 				letter-spacing: 1px;
-				text-transform: uppercase;
+				text-transform: capitalize;
 				border: 1px solid $first-color;
 				background-color: $first-color;
 				font-family: 'latoregular', sans-serif;

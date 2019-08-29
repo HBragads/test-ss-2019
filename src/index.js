@@ -176,7 +176,7 @@ class App extends Component {
                 () => (
                   <React.Fragment>
 
-                    <Header title="Detalhes" action={() => { this.menuHandler(!this.state.menuFlag) }} />
+                    <Header back="home" title="Detalhes" action={() => { this.menuHandler(!this.state.menuFlag) }} />
 
                     <Details menuFlag={this.state.menuFlag} handlers={handlers} />
 
@@ -192,7 +192,7 @@ class App extends Component {
                 () => (
                   <React.Fragment>
 
-                    <Header title="Criar Dragão" action={() => { this.menuHandler(!this.state.menuFlag) }} />
+                    <Header back="home" title="Criar Dragão" action={() => { this.menuHandler(!this.state.menuFlag) }} />
 
                     <Create menuFlag={this.state.menuFlag} handlers={handlers} />
 

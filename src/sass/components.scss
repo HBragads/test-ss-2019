@@ -95,9 +95,16 @@
 		width: 40px;
 		height: 40px;
 		cursor: pointer;
+		margin-right: 15px;
 		background: url(./images/logo.png) no-repeat;
 		background-position: center;
 		background-size: cover;
+	}
+
+	&--back {
+		cursor: pointer;
+		font-size: 300%;
+		margin-right: 15px;
 	}
 
 	&--title {
@@ -127,13 +134,6 @@
 	justify-content: space-evenly;
 	border: 1px solid $first-color;
 	background-color: $second-color;
-
-	@media only screen and (max-width: 500px) {
-		border: none;
-		border-radius: 0;
-		border-top: 1px solid $first-color;
-		border-bottom: 1px solid $first-color;
-	}
 
 	&:first-of-type {
 		margin-top: 15px;
@@ -200,6 +200,7 @@
 		input {
 			color: $orange;
 			margin: 0 10px 0 3px;
+			text-transform: capitalize;
 			text-decoration: underline;
 			background-color: transparent;
 			font-family: 'latoregular', sans-serif;
@@ -228,6 +229,7 @@
 		input {
 			color: $orange;
 			margin: 0 10px 0 3px;
+			text-transform: capitalize;
 			text-decoration: underline;
 			background-color: transparent;
 			font-family: 'latoregular', sans-serif;
@@ -236,6 +238,55 @@
 		span {
 			margin: 0 10px 0 3px;
 			font-family: 'latoregular', sans-serif;
+		}
+	}
+
+	@media only screen and (max-width: 500px) {
+		border: none;
+		border-radius: 0;
+		border-top: 1px solid $first-color;
+		border-bottom: 1px solid $first-color;
+	}
+
+	@media only screen and (min-width: 1000px) {
+		max-width: 800px;
+		height: 180px;
+
+		.item--icon {
+			top: 25px;
+			font-size: 220%;
+		}
+
+		.item--arrow {
+			bottom: 24px;
+			font-size: 220%;
+		}
+
+		.item--edit {
+			right: 50px;
+		}
+
+		.item--save {
+			right: 50px;
+		}
+
+		h2 {
+			font-size: 220%;
+			margin-bottom: 27px;
+			line-height: normal;
+
+			input {
+				line-height: normal;
+			}
+		}
+
+		p {
+			font-size: 200%;
+			line-height: normal;
+
+			input {
+				line-height: normal;
+			}
 		}
 	}
 }

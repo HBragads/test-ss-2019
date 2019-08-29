@@ -71,12 +71,15 @@ class Item extends Component {
 
         axios.put(url, params, config)
             .then(response => {
-                self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão atualizado. ', () => {
-                    this.setState({
-                        name: name.toLowerCase(),
-                        type: type.toLowerCase(),
-                        isEdition: false,
-                        createdAt: createdAt
+                self.props.handlers.loadingHandler(true, () => {
+                    self.props.updateData();
+                    self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão atualizado. ', () => {
+                        this.setState({
+                            name: name.toLowerCase(),
+                            type: type.toLowerCase(),
+                            isEdition: false,
+                            createdAt: createdAt
+                        });
                     });
                 });
             })
@@ -109,9 +112,9 @@ class Item extends Component {
         axios.delete(url, {}, config)
             .then(response => {
                 self.props.handlers.loadingHandler(true, () => {
-                self.props.updateData();
-                self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão excluído. ');
-            });
+                    self.props.updateData();
+                    self.props.handlers.notifyHandler('success', 'Sucesso:', ' Dragão excluído. ');
+                });
             })
             .catch(error => {
                 self.props.handlers.loadingHandler(false, () => {
@@ -219,7 +222,7 @@ class Item extends Component {
 
                                     <p> Tipo: <span> {this.state.type} </span> </p>
 
-                                    <RightArrow className="item--arrow" onClick={this.detailsHandler} />
+                                    <RightArrow className="item--arrow animated-arrow-right" onClick={this.detailsHandler} />
 
                                 </React.Fragment>
                         }

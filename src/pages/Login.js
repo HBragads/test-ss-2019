@@ -100,7 +100,7 @@ class Login extends Component {
                             type="text"
                             maskChar=" "
                             id="email-input"
-                            placeholder="e-mail"
+                            placeholder="user / e-mail"
                             className="login--content--form--input"
                             onChange={(event) => {
                                 this.setState({
@@ -110,9 +110,8 @@ class Login extends Component {
                         />
 
                         <InputMask
-                            type="text"
                             maskChar=" "
-                            mask="9 9 9 9"
+                            type="password"
                             id="password-input"
                             placeholder="senha"
                             className="login--content--form--input"
